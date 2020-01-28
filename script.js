@@ -1,12 +1,14 @@
 var base = document.querySelector("input");
 var button = document.querySelector(".submit");
+var rate = document.querySelector("p");
 
 function display(response) {
-  var data = response;
-  
+	var data = response;
+	console.log(data);
+	rate.innerHTML = `1 ${base.value} is ${data.rates.AED} AED`;
 }
 
-function rates() {
+function getData() {
 	const xhr = new XMLHttpRequest();
 	xhr.addEventListener("load", () => display(JSON.parse(xhr.response)));
 	xhr.open("GET", `https://api.exchangerate-api.com/v4/latest/${base.value}`);
@@ -14,5 +16,4 @@ function rates() {
 
 	// console.log(JSON.parse(xhr.response));
 }
-
-button.addEventListener("click", rates);
+button.addEventListener("click", getData);
