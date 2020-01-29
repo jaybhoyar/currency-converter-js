@@ -1,20 +1,27 @@
-var base = document.querySelector("input");
+var input = document.querySelector("input");
 var button = document.querySelector(".submit");
 var rate = document.querySelector("p");
 
 function display(response) {
-	rate.innerHTML = "";
+	// rate.innerHTML = "";
 	var data = response;
-	// console.log(data);
-	rate.innerHTML = `1 ${base.value} is ${data.rates.AED} AED`;
+	var rate = {};
+	rate = data.rates;
+	console.log(rate);
+	for (let i = 0; i < 10; i++) {
+		let p = document.createElement("p");
+		p.textContent = `1 ${input.value} is ${rate[i]} ${rate[i]} `;
+		document.body.append(p);
+	}
 }
 
 function getData() {
 	const xhr = new XMLHttpRequest();
 	xhr.addEventListener("load", () => display(JSON.parse(xhr.response)));
-	xhr.open("GET", `https://api.exchangerate-api.com/v4/latest/${base.value}`);
+	xhr.open(
+		"GET",
+		`https://api.exchangerate-api.com/v4/latest/${input.value}`
+	);
 	xhr.send();
-
-	// console.log(JSON.parse(xhr.response));
 }
 button.addEventListener("click", getData);
