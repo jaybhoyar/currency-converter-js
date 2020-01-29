@@ -8,9 +8,9 @@ function display(response) {
 	var rate = {};
 	rate = data.rates;
 	console.log(rate);
-	for (let i = 0; i < 10; i++) {
+	for (let [key, value] of Object.entries(rate)) {
 		let p = document.createElement("p");
-		p.textContent = `1 ${input.value} is ${rate[i]} ${rate[i]} `;
+		p.textContent = `1 ${input.value} is ${value} ${key} `;
 		document.body.append(p);
 	}
 }
