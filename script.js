@@ -3,8 +3,9 @@ var button = document.querySelector(".submit");
 var rate = document.querySelector("p");
 
 function display(response) {
+	rate.innerHTML = "";
 	var data = response;
-	console.log(data);
+	// console.log(data);
 	rate.innerHTML = `1 ${base.value} is ${data.rates.AED} AED`;
 }
 
