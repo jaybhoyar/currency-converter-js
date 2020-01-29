@@ -10,7 +10,7 @@ function display(response) {
 	console.log(rate);
 	for (let [key, value] of Object.entries(rate)) {
 		let p = document.createElement("p");
-		p.textContent = `1 ${input.value} is ${value} ${key} `;
+		p.textContent = `1 ${input.value.toUpperCase()} is ${value} ${key} `;
 		document.body.append(p);
 	}
 }
