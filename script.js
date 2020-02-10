@@ -9,7 +9,7 @@ function display(response) {
 	rate = data.rates;
 	for (let [key, value] of Object.entries(rate)) {
 		let a = document.createElement("a");
-		a.textContent = `1 ${input.value.toUpperCase()} is ${value.toFixed(
+		a.textContent = `🇮🇳1 ${input.value.toUpperCase()} is ${value.toFixed(
 			2
 		)} ${key} `;
 		div.appendChild(a);
