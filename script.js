@@ -1,9 +1,9 @@
 var input = document.querySelector("input");
 var button = document.querySelector(".submit");
-var rate = document.querySelector("p");
+var show = document.querySelector("p");
 
 function display(response) {
-	// rate.innerHTML = "";
+	show.innerHTML = "";
 	var data = response;
 	var rate = {};
 	rate = data.rates;
@@ -11,17 +11,13 @@ function display(response) {
 	for (let [key, value] of Object.entries(rate)) {
 		let p = document.createElement("p");
 		p.textContent = `1 ${input.value.toUpperCase()} is ${value} ${key} `;
-		document.body.append(p);
+		show.appendChild(p);
 	}
 }
-
 function getData() {
-	const xhr = new XMLHttpRequest();
-	xhr.addEventListener("load", () => display(JSON.parse(xhr.response)));
-	xhr.open(
-		"GET",
-		`https://api.exchangerate-api.com/v4/latest/${input.value}`
-	);
-	xhr.send();
+	fetch(`https://api.exchangerate-api.com/v4/latest/${input.value}`)
+		.then(response => response.json())
+		.then(res => display(res));
 }
+
 button.addEventListener("click", getData);
