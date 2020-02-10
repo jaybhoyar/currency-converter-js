@@ -1,17 +1,18 @@
 var input = document.querySelector("input");
 var button = document.querySelector(".submit");
-var show = document.querySelector("p");
+var div = document.querySelector(".show");
 
 function display(response) {
-	show.innerHTML = "";
+	div.innerHTML = "";
 	var data = response;
 	var rate = {};
 	rate = data.rates;
-	console.log(rate);
 	for (let [key, value] of Object.entries(rate)) {
-		let p = document.createElement("p");
-		p.textContent = `1 ${input.value.toUpperCase()} is ${value} ${key} `;
-		show.appendChild(p);
+		let a = document.createElement("a");
+		a.textContent = `1 ${input.value.toUpperCase()} is ${value.toFixed(
+			2
+		)} ${key} `;
+		div.appendChild(a);
 	}
 }
 function getData() {
