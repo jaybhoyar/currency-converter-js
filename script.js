@@ -11,9 +11,10 @@ function display(response) {
 	rate = data.rates;
 	for (let [key, value] of Object.entries(rate)) {
 		let a = document.createElement("a");
-		let value = (a.textContent = ` ${inputCountry.value.toUpperCase()} is ${value.toFixed(
+		let calculate = input.value * value;
+		a.innerHTML = `${input.value} is <strong>${calculate.toFixed(
 			2
-		)} ${key}`);
+		)}</strong> ${key}`;
 		div.appendChild(a);
 	}
 }
