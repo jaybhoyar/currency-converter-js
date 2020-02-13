@@ -12,9 +12,8 @@ function display(response) {
 	for (let [key, value] of Object.entries(rate)) {
 		let a = document.createElement("a");
 		let calculate = input.value * value;
-		a.innerHTML = `${input.value} is <strong>${calculate.toFixed(
-			2
-		)}</strong> ${key}`;
+		a.innerHTML = `${input.value} ${inputCountry.value.toUpperCase()}
+     = <strong>${calculate.toFixed(2)}</strong> ${key}`;
 		div.appendChild(a);
 	}
 	inputCountry.value = "";
