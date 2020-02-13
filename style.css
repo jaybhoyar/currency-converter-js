@@ -15,6 +15,15 @@ h1 {
 	outline: none;
 	border-radius: 6px;
 	border: 1px solid rgb(121, 121, 121);
+	margin-right: 20px;
+}
+.amount {
+  margin-right: 20px;
+	padding: 12px 20px;
+	font-size: 1.2rem;
+	outline: none;
+	border-radius: 6px;
+	border: 1px solid rgb(121, 121, 121);
 }
 .submit {
 	padding: 12px 20px;
@@ -35,7 +44,6 @@ a {
 	text-decoration: none;
 	font-size: 1rem;
 	padding: 12px 18px;
-	width: fit-content;
 	background-color: #ffff;
 	margin-right: 18px;
 	margin-bottom: 18px;
