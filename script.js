@@ -1,6 +1,6 @@
 var inputCountry = document.querySelector(".base_currency");
+inputCountry.value = inputCountry.value.toUpperCase();
 var input = document.querySelector(".amount");
-
 var button = document.querySelector(".submit");
 var div = document.querySelector(".show");
 
@@ -17,10 +17,16 @@ function display(response) {
 		)}</strong> ${key}`;
 		div.appendChild(a);
 	}
+	inputCountry.value = "";
+	input.value = "";
 }
 function getData() {
-	fetch(`https://api.exchangerate-api.com/v4/latest/${inputCountry.value}`)
-		.then(response => response.json())
-		.then(res => display(res));
+	if (inputCountry.value.trim() != "" && input.value.trim() != "") {
+		fetch(
+			`https://api.exchangerate-api.com/v4/latest/${inputCountry.value}`
+		)
+			.then(response => response.json())
+			.then(res => display(res));
+	}
 }
 button.addEventListener("click", getData);
